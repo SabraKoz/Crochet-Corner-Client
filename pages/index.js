@@ -6,7 +6,7 @@ export default function Index() {
   return (
     <Container>
       <Box align="center" m="9">
-          <img src="" style={{ borderRadius: "50px", boxShadow: "0 0 20px black" }} />
+          <img src="/yarn logo.png" style={{ borderRadius: "50px", boxShadow: "0 0 20px black" }} />
       </Box>
     </Container>
   )

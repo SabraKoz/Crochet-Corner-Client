@@ -48,19 +48,19 @@ export default function ProjectDetail() {
                 </Heading>
                 <Flex justify="between" m="5">
                 <Box m="3">
-                    <Text>Creator: </Text>
+                    <Text weight="bold">Creator: </Text>
                     <HoverCard.Root>
                         <HoverCard.Trigger>
                             <Link href={`/projects/${project.user?.id}`} style={{ textDecoration: "none", color: "teal", fontWeight: "bold" }}>{project.user?.username}</Link>
                         </HoverCard.Trigger>
-                        <HoverCard.Content size="1" style={{ backgroundColor: "#e8daf0" }}>
+                        <HoverCard.Content size="1" style={{ backgroundColor: "#B8C0FF" }}>
                             <Text>View Store</Text>
                         </HoverCard.Content>
                     </HoverCard.Root>
                 </Box>
              
                 <Box m="3">
-                    <Text>Likes: </Text>
+                    <Text weight="bold">Likes: </Text>
                     {project.likes?.length}
                 </Box>
                
@@ -72,14 +72,31 @@ export default function ProjectDetail() {
                 }
  
                 </Flex>
-                <Flex justify="between" m="5">
+                {/* <Flex justify="between" m="5">
                 <Box m="3" style={{ fontSize: "1.1rem", lineHeight: "1.5", maxWidth: "60%" }}>
                     {project.instructions}
                 </Box>
                 <Box m="3">
                     <img src={project.image_path} style={{ maxWidth: "500px", maxHeight: "400px", width: "100%", height: "auto", borderRadius: "15px" }} />
                 </Box>
-                </Flex>
+                </Flex> */}
+                <Box m="5" style={{ textAlign: "center" }}>
+                    <img
+                        src={project.image_path}
+                        alt={project.name}
+                        style={{
+                            width: "100%",
+                            maxWidth: "700px",
+                            height: "auto",
+                            borderRadius: "15px",
+                            boxShadow: "0 0 15px #0882B2"
+                        }} 
+                    />
+                </Box>
+                <Box m="5" p="5" style={{ backgroundColor: "#B8C0FF", border: "2px solid #0882B2", borderRadius: "10px", fontSize: "1.1rem", lineHeight: "1.6", whiteSpace: "pre-line" }}>
+                    <Text weight="bold" size="4">Instructions: </Text><br /><br />
+                    {project.instructions}
+                </Box>
                 <Box>
                     <Comments project={project} refresh={refresh} />
                 </Box>

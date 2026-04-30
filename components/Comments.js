@@ -25,7 +25,7 @@ export default function Comments({ project, refresh }) {
     }
 
     return (
-        <Box m="9" style={{ padding: "30px", border: "2px solid #0882B2", borderRadius: "10px", backgroundColor: "#e8daf0" }}>
+        <Box m="9" style={{ padding: "30px", border: "2px solid #0882B2", borderRadius: "10px", backgroundColor: "#B8C0FF" }}>
             <Text weight="bold" size="4">Comments:</Text>
             <Box m="2">
                 <TextArea

@@ -50,10 +50,10 @@ export default function Projects() {
                 <Box>
                     <Text size="4" weight="medium" m="3">Filter by Project Type: </Text>
                     <Select.Root defaultValue="all" onValueChange={(value) => setSelectedType(value === "all" ? null : value)} >
-                        <Select.Trigger style={{backgroundColor: "#e8daf0"}}>
+                        <Select.Trigger style={{backgroundColor: "#B8C0FF"}}>
                             {selectedType ? types.find(type => type.id === selectedType)?.name : "Select a type"}
                         </Select.Trigger>
-                        <Select.Content style={{backgroundColor: "#e8daf0"}}>
+                        <Select.Content style={{backgroundColor: "#B8C0FF"}}>
                             <Select.Group >
                                 <Select.Item value="all" >Select a Type</Select.Item>
                                 {types.map(type => (
@@ -68,10 +68,10 @@ export default function Projects() {
                 <Box>
                     <Text size="4" weight="medium" m="3" >Filter by Project Level: </Text>
                     <Select.Root defaultValue="all" onValueChange={(value) => setSelectedLevel(value === "all" ? null : value)}>
-                        <Select.Trigger style={{backgroundColor: "#e8daf0"}}>
+                        <Select.Trigger style={{backgroundColor: "#B8C0FF"}}>
                             {selectedLevel ? levels.find(level => level.id === selectedLevel)?.name : "Select a level"}
                         </Select.Trigger>
-                        <Select.Content style={{backgroundColor: "#e8daf0"}}>
+                        <Select.Content style={{backgroundColor: "#B8C0FF"}}>
                             <Select.Group>
                                 <Select.Item value="all">Select a Level</Select.Item>
                                 {levels.map(level => (

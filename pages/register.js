@@ -44,7 +44,7 @@ export default function Register() {
                     <Text m="2">First Name: </Text>
                     <TextField.Root
                         m="1"
-                        style={{ width: "400px", backgroundColor: "#e8daf0" }}
+                        style={{ width: "400px", backgroundColor: "#B8C0FF" }}
                         id="firstName"
                         placeholder="First Name"
                         ref={firstName}
@@ -56,7 +56,7 @@ export default function Register() {
                     <Text m="2">Last Name: </Text>
                     <TextField.Root
                         m="1"
-                        style={{ width: "400px", backgroundColor: "#e8daf0" }}
+                        style={{ width: "400px", backgroundColor: "#B8C0FF" }}
                         id="lastName"
                         placeholder="Last Name"
                         ref={lastName}
@@ -68,7 +68,7 @@ export default function Register() {
                     <Text m="2">Username: </Text>
                     <TextField.Root
                         m="1"
-                        style={{ width: "400px", backgroundColor: "#e8daf0" }}
+                        style={{ width: "400px", backgroundColor: "#B8C0FF" }}
                         id="username"
                         placeholder="Username"
                         ref={username}
@@ -82,7 +82,7 @@ export default function Register() {
                     <Text m="2">Password: </Text>
                     <TextField.Root
                         m="1"
-                        style={{ width: "400px", backgroundColor: "#e8daf0" }}
+                        style={{ width: "400px", backgroundColor: "#B8C0FF" }}
                         id="password"
                         placeholder="Password"
                         ref={password}
@@ -94,7 +94,7 @@ export default function Register() {
                     <Text m="2">Email: </Text>
                     <TextField.Root
                         m="1"
-                        style={{ width: "400px", backgroundColor: "#e8daf0" }}
+                        style={{ width: "400px", backgroundColor: "#B8C0FF" }}
                         id="email"
                         placeholder="Email"
                         ref={email}
@@ -109,7 +109,7 @@ export default function Register() {
                 </Box>
 
                 <AlertDialog.Root open={isAlertDialogOpen} onOpenChange={setIsAlertDialogOpen}>
-                    <AlertDialog.Content style={{ backgroundColor: "#e8daf0" }}>
+                    <AlertDialog.Content style={{ backgroundColor: "#B8C0FF" }}>
                         <AlertDialog.Title m="3" align="center">Missing Information</AlertDialog.Title>
                         <AlertDialog.Description m="3" align="center">Please Complete all fields</AlertDialog.Description>
                         <Box align="center" m="3">

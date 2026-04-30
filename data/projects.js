@@ -29,3 +29,46 @@ export function getProjectById(id) {
         }
     }).then(res => res.json())
 }
+
+export function addProject(project) {
+    return fetch(`http://localhost:8000/projects`, {
+        method: "POST",
+        headers: {
+            Authorization: `Token ${localStorage.getItem('token')}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(project)
+    }).then(res => res.json())
+}
+
+export function editProject(id, project) {
+    return fetch(`http://localhost:8000/projects/${id}`, {
+        method: "PUT",
+        headers: {
+            Authorization: `Token ${localStorage.getItem('token')}`,
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(project)
+    }).then(res => {
+        if (res.status === 204) {
+            return null
+        }
+        return res.text()
+    })
+}
+
+export function deleteProject(id) {
+    return fetch(`http://localhost:8000/projects/${id}`, {
+        method: "DELETE",
+        headers: {
+            Authorization: `Token ${localStorage.getItem('token')}`
+        }
+    }).then(res => {
+        if (res.status === 204) {
+            return null
+        }
+        return res.text()
+    })
+}
+
+

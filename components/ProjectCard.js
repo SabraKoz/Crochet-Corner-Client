@@ -9,7 +9,7 @@ export function ProjectCard({ project, removeProject, img_src, noButtons, isOwne
 
     return (
         <Card m="2" style={{
-            backgroundColor: "#e8daf0",
+            backgroundColor: "#B8C0FF",
             transition: "transform 0.3s ease, box-shadow 0.3s ease"
         }}
             onMouseEnter={(event) => {
@@ -33,7 +33,7 @@ export function ProjectCard({ project, removeProject, img_src, noButtons, isOwne
                             <AlertDialog.Trigger>
                                 <Button m="3" color="red">Delete</Button>
                             </AlertDialog.Trigger>
-                            <AlertDialog.Content style={{ backgroundColor: "#e8daf0"}}>
+                            <AlertDialog.Content style={{ backgroundColor: "#B8C0FF"}}>
                                 <AlertDialog.Title align="center" m="3">Delete Project</AlertDialog.Title>
                                 <AlertDialog.Description align="center" m="3">Are you sure you want to permanently delete "{project.name}"?</AlertDialog.Description>
                                 <Box align="center">
