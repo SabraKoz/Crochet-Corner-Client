@@ -31,8 +31,8 @@ export default function Navbar() {
           <Link href="/profile">Profile</Link>
         </TabNav.Link>
 
-        <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/projectlikes"}>
-          <Link href="/projectlikes">Favorites</Link>
+        <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === "/profile/favorites"}>
+          <Link href="/profile/favorites">Favorites</Link>
         </TabNav.Link>
 
         <TabNav.Link asChild style={{ padding: "15px" }} active={pathname === ""}>

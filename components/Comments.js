@@ -2,6 +2,7 @@ import { Box, Button, Card, Text, TextArea } from "@radix-ui/themes"
 import { useState } from "react"
 import { FaTrash } from "react-icons/fa"
 import { useAppContext } from "../context/state"
+import { commentProject, deleteComment } from "../data/projects"
 
 export default function Comments({ project, refresh }) {
     const { profile } = useAppContext()

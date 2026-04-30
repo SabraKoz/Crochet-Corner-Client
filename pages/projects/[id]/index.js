@@ -1,7 +1,7 @@
 import { Box, Button, Card, Container, Dialog, Flex, Heading, HoverCard, Text, TextField } from "@radix-ui/themes";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { getProjectById } from "../../../data/projects";
+import { getProjectById, likeProject, unlikeProject } from "../../../data/projects";
 import Layout from "../../../components/layout";
 import Navbar from "../../../components/navbar";
 import Link from "next/link";
@@ -72,14 +72,7 @@ export default function ProjectDetail() {
                 }
  
                 </Flex>
-                {/* <Flex justify="between" m="5">
-                <Box m="3" style={{ fontSize: "1.1rem", lineHeight: "1.5", maxWidth: "60%" }}>
-                    {project.instructions}
-                </Box>
-                <Box m="3">
-                    <img src={project.image_path} style={{ maxWidth: "500px", maxHeight: "400px", width: "100%", height: "auto", borderRadius: "15px" }} />
-                </Box>
-                </Flex> */}
+             
                 <Box m="5" style={{ textAlign: "center" }}>
                     <img
                         src={project.image_path}
