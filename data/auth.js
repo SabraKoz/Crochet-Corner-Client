@@ -25,3 +25,11 @@ export function getUserProfile() {
         }
     }).then(res => res.json())
 }
+
+export function getProfileById(id) {
+    return fetch(`http://localhost:8000/profile/${id}`, {
+        headers: {
+            Authorization: `Token ${localStorage.getItem('token')}`,
+        }
+    }).then(res => res.json())
+}

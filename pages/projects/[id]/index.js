@@ -38,41 +38,46 @@ export default function ProjectDetail() {
     return (
         <Container>
             <Card m="5" style={{ padding: "20px", backgroundColor: "#C4E8F6", borderRadius: "10px", boxShadow: "0 0 20px black" }}>
-                <Heading 
-                    m="5" 
-                    align="center" 
-                    size="8" 
-                    weight="bold" 
+                <Heading
+                    m="5"
+                    align="center"
+                    size="8"
+                    weight="bold"
                     style={{ textShadow: "2px 2px 3px #0882B2" }}>
-                        {project.name}
+                    {project.name}
                 </Heading>
                 <Flex justify="between" m="5">
-                <Box m="3">
-                    <Text weight="bold">Creator: </Text>
-                    <HoverCard.Root>
-                        <HoverCard.Trigger>
-                            <Link href={`/projects/${project.user?.id}`} style={{ textDecoration: "none", color: "teal", fontWeight: "bold" }}>{project.user?.username}</Link>
-                        </HoverCard.Trigger>
-                        <HoverCard.Content size="1" style={{ backgroundColor: "#B8C0FF" }}>
-                            <Text>View Store</Text>
-                        </HoverCard.Content>
-                    </HoverCard.Root>
-                </Box>
-             
-                <Box m="3">
-                    <Text weight="bold">Likes: </Text>
-                    {project.likes?.length}
-                </Box>
-               
-                {
-                    project.is_liked ? 
-                        <Button onClick={unlike}><FaHeart /></Button>
-                        :
-                        <Button onClick={like}><FaRegHeart /></Button>
-                }
- 
+                    <Box m="3">
+                        <Text weight="bold">Creator: </Text>
+                        <HoverCard.Root>
+                            <HoverCard.Trigger>
+                                <Link 
+                                    href={`/profile/${project.user?.id}`} 
+                                    style={{ textDecoration: "none", color: "teal", fontWeight: "bold" }}
+                                >
+                                    {project.user?.username}
+                                </Link>
+                            </HoverCard.Trigger>
+                            <HoverCard.Content size="1" style={{ backgroundColor: "#B8C0FF" }}>
+                                <Text>View All Projects by {project.user?.username}</Text>
+                            </HoverCard.Content>
+                        </HoverCard.Root>
+                    </Box>
+
+                    <Box m="3">
+                        <Text weight="bold">Likes: </Text>
+                        {project.likes?.length}
+                    </Box>
+
+                    {
+                        project.is_liked ?
+                            <Button onClick={unlike}><FaHeart /></Button>
+                            :
+                            <Button onClick={like}><FaRegHeart /></Button>
+                    }
+
                 </Flex>
-             
+
                 <Box m="5" style={{ textAlign: "center" }}>
                     <img
                         src={project.image_path}
@@ -83,7 +88,7 @@ export default function ProjectDetail() {
                             height: "auto",
                             borderRadius: "15px",
                             boxShadow: "0 0 15px #0882B2"
-                        }} 
+                        }}
                     />
                 </Box>
                 <Box m="5" p="5" style={{ backgroundColor: "#B8C0FF", border: "2px solid #0882B2", borderRadius: "10px", fontSize: "1.1rem", lineHeight: "1.6", whiteSpace: "pre-line" }}>
