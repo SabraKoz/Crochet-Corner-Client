@@ -186,7 +186,7 @@ export default function NewProject(project = {}) {
                     {project.id && <TextField.Root type="hidden" name="project" value={project.id} />}
                     {projectImage && (
                         <Box>
-                            <img src={projectImage} alt="project image review" style={{ maxWidth: "200px" }} />
+                            <img src={projectImage} alt="project image preview" style={{ maxWidth: "200px" }} />
                         </Box>
                     )}
                 </Box>

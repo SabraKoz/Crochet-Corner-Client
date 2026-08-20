@@ -5,20 +5,35 @@ import Navbar from "../../../components/navbar";
 import { Container, Card, Grid, Heading } from "@radix-ui/themes";
 import { ProjectCard } from "../../../components/ProjectCard";
 import { getProfileById } from "../../../data/auth";
+import { useAppContext } from "../../../context/state";
+import { deleteProject } from "../../../data/projects";
 
 export default function UserProfile() {
     const router = useRouter()
     const { id } = router.query
-    const [profile, setProfile] = useState(null)
+    const { profile: loggedInUser } = useAppContext()
+    const [creatorProfile, setCreatorProfile] = useState(null)
+    const [isOwner, setIsOwner] = useState(false)
+
+    const refresh = () => {
+        getProfileById(id).then(data => {
+            setCreatorProfile(data)
+        })
+    }
 
     useEffect(() => {
-        if (!id) return
+        if (!id || !loggedInUser) return
         getProfileById(id).then(data => {
-            setProfile(data)
+            setCreatorProfile(data)
+            setIsOwner(loggedInUser.id === data.id)
         })
-    }, [id])
+    }, [id, loggedInUser])
 
-    if (!profile) return null
+    const removeProject = (projectId) => {
+        deleteProject(projectId).then(refresh)
+    }
+
+    if (!creatorProfile) return null
 
     return (
         <Container m="7">
@@ -37,17 +52,19 @@ export default function UserProfile() {
                     weight="bold"
                     style={{ textShadow: "2px 2px 3px #0882B2" }}
                 >
-                    {profile.first_name}'s Projects
+                    {creatorProfile.first_name}'s Projects
                 </Heading>
                 <Grid
                     columns="3"
                     gap="4"
                 >
-                    {profile.projects.map(project => (
+                    {creatorProfile.projects.map(project => (
                         <ProjectCard 
                             project={project} 
                             key={project.id} 
-                            img_src={project.image_path} />
+                            isOwner={isOwner}
+                            img_src={project.image_path}
+                            removeProject={removeProject} />
                     ))}
                 </Grid>
             </Card>

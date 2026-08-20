@@ -6,17 +6,26 @@ import { Container, Card, Grid, Heading } from "@radix-ui/themes";
 import Layout from "../../components/layout";
 import Navbar from "../../components/navbar";
 import { ProjectCard } from "../../components/ProjectCard";
+import { deleteProject } from "../../data/projects";
 
 export default function Profile() {
     const router = useRouter()
     const { profile } = useAppContext()
     const [projects, setProjects] = useState([])
 
-    useEffect(() => {
+    const refresh = () => {
         getUserProfile().then(data => {
             setProjects(data.projects)
         })
+    }
+
+    useEffect(() => {
+        refresh()
     }, [])
+
+    const removeProject = (projectId) => {
+        deleteProject(projectId).then((refresh))
+    }
 
     return (
         <Container m="7">
@@ -39,7 +48,12 @@ export default function Profile() {
                 </Heading>
                 <Grid columns="3" gap="4">
                     {projects.map(project => (
-                        <ProjectCard project={project} key={project.id} img_src={project.image_path} />
+                        <ProjectCard 
+                            project={project} 
+                            key={project.id} 
+                            img_src={project.image_path} 
+                            isOwner={true}
+                            removeProject={removeProject} />
                     ))}
                 </Grid>
             </Card>
